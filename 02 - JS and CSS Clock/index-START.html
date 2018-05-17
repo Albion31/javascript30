@@ -53,7 +53,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px) rotate(90deg); /* account for the height of the clock hands */
+      transform: translateY(-3px) rotate(90deg); /* account for the height of the clock hands and rotate 90deg to start at the top */
     }
 
     .hand {
@@ -75,7 +75,7 @@
     const minHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
 
-    function setDate() {
+    const setDate = () => {
       const now = new Date();
       const seconds = now.getSeconds();
       const secondsDegrees = (seconds/60) * 360;
