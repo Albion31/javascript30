@@ -53,18 +53,17 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: translateY(-3px) rotate(90deg); /* account for the height of the clock hands */
     }
 
     .hand {
       width:50%;
-      height:7px;
+      height:6px;
       background: #16b980;
       border: 1px solid #656b66;
       position: absolute;
       top:50%;
       transform-origin: 100%;
-      transform: rotate(90deg);
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
@@ -79,17 +78,17 @@
     function setDate() {
       const now = new Date();
       const seconds = now.getSeconds();
-      const secondsDegrees = ((seconds/60) * 360) + 90;
+      const secondsDegrees = (seconds/60) * 360;
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
       // console.log(seconds)
 
       const minutes = now.getMinutes();
-      const minutesDegrees = ((minutes/60) * 360) + 90;
+      const minutesDegrees = (minutes/60) * 360;
       minHand.style.transform = `rotate(${minutesDegrees}deg)`
       // console.log(minutes)
 
       const hours = now.getHours();
-      const hoursDegrees = ((hours/12) * 360) + 90;
+      const hoursDegrees = (hours/12) * 360;
       hourHand.style.transform = `rotate(${hoursDegrees}deg)`
       // console.log(hours)
     }
